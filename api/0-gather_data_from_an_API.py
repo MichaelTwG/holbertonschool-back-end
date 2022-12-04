@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ module gather_data_from_an_API """
 
-from sys import argv
 import requests
+from sys import argv
 
 
 if __name__ == "__main__":
