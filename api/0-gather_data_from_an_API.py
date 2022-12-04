@@ -17,7 +17,7 @@ if __name__ == "__main__":
     to_do_usr = [to for to in to_do_r if to.get("userId") == int(u_id)]
     complete_t = [com for com in to_do_usr if com.get('completed') is True]
 
-    print("Employee {} is done with tasks ({}/{})"
+    print("Employee {} is done with tasks({}/{})"
           .format(
                   u_request.get('name'),
                   len(complete_t),
