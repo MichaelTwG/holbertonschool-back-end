@@ -14,7 +14,7 @@ if __name__ == "__main__":
     u_request = requests.get(url_r.format("users/" + u_id)).json()
     to_do_r = requests.get(url_r.format("todos/")).json()
 
-    u_name = u_request.get("name")
+    u_name = u_request.get("username")
     file_name = "{}.csv".format(u_id)
     csv = ""
     for task in to_do_r:
