@@ -14,19 +14,18 @@ if __name__ == "__main__":
     u_request = requests.get(url_r.format("users/" + u_id)).json()
     to_do_r = requests.get(url_r.format("todos/")).json()
 
-    to_do_usr = [to for to in to_do_r if to.get("userId") == int(u_id)]
-
     u_name = u_request.get("name")
     file_name = "{}.csv".format(u_id)
     csv = ""
-    for task in to_do_usr:
-        task_status = to_do_usr.get("completed")
-        task_title = to_do_usr.get("title")
+    for task in to_do_r:
+        if task.get("userId") == int(u_id):
+            task_status = task.get("completed")
+            task_title = task.get("title")
 
-        text = '"{}","{}","{}","{}"'.format(u_id,
-                                    u_name,
-                                    task_status,
-                                    task_title)
-        csv += text + "\n"
+            text = '"{}","{}","{}","{}"'.format(u_id,
+                                                u_name,
+                                                task_status,
+                                                task_title)
+            csv += text + "\n"
     with open(file_name, "w", encoding="utf-8") as csv_file:
         csv_file.write(csv)
