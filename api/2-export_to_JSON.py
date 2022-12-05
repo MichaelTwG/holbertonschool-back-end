@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ module gather_data_from_an_API """
 
+import json
 import requests
 from sys import argv
-import json
 
 
 if __name__ == "__main__":
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     file_name = "{}.json".format(u_id)
 
     u_name = u_request.get("username")
-    
+
     for task in to_do_r:
         dict_task = {}
         if task.get("userId") == int(u_id):
